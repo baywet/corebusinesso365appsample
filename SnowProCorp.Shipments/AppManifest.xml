@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     Name="SnowProCorpShipments"
+     ProductID="{32189424-b092-4cec-a900-322c4a833d51}"
+     Version="1.0.5.0"
+     SharePointMinVersion="16.0.0.0"
+>
+  <Properties>
+    <Title>SnowProCorp.Shipments</Title>
+    <StartPage>~remoteAppUrl/Home/Index?{StandardTokens}</StartPage>
+  </Properties>
+
+  <AppPrincipal><!-- don't forget to change the client id, publishing assistant should do it when first publish-->
+    <RemoteWebApplication ClientId="9609ac89-cb18-4ee2-b6f6-c4b808e19770" />
+  </AppPrincipal>
+  <AppPermissionRequests>
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read" />
+    <AppPermissionRequest Scope="http://sharepoint/social/tenant" Right="Read" />
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection" Right="Read" />
+  </AppPermissionRequests>
+</App>

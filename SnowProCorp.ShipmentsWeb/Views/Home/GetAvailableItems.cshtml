@@ -1,0 +1,65 @@
+﻿@using SnowProCorp.ShipmentsWeb.Helper
+@model SnowProCorp.ShipmentsWeb.ViewModel.GenericPagingInfo<List<SnowProCorp.DAL.ProducedItem>>
+
+
+
+@if (Model.Data != null && Model.Data.Any())
+{
+    <table class="table" id="tblElements">
+        <tr>
+            <th>
+                Ship
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.First().Type.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.First().Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.First().Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.First().QualityOk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data.First().ProductionDate)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model.Data)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBox("to-ship",new{@class="to-ship", data_item_id=item.Id})
+                </td>
+                <td data-itemid="@item.Id">
+                    @Html.DisplayFor(modelItem => item.Type.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QualityOk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new {id = item.Id})
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PageLinks(Model.PagingInfo, i => Url.Action("GetAvailableItems", new {pageNumber = i}))
+
+}
+else
+{
+    @:Sorry il n'y a rien a afficher t'a pas de commande t'a pas d'amis !!!!!
+}

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SnowProCorp.DAL.Shipment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="elementsContainer" data-url="@Url.Action("List")">
+    @Html.Action("List")
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("body").on("click", "#pagination a", function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $.get(url, function(html) {
+                    $("#elementsContainer").hide().html(html).fadeIn('slow');
+                });
+            });
+        })
+    </script>
+}

@@ -1,0 +1,106 @@
+﻿@using SnowProCorp.ShipmentsWeb.Helper
+@{
+    ViewBag.Title = "Home Page";
+}
+<button style="margin-bottom: 10px" data-toggle="modal" data-target="#shipment-modal" id="ship-selected"  type="button" class="btn btn-primary disabled">Ship Selected Items</button>
+<div id="elementsContainer" data-url="@Url.Action("GetAvailableItems")">
+    @Html.Action("GetAvailableItems")
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="shipment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Specify the address</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="shipment-address">Address</label>
+                    <textarea class="form-control" id="shipment-address" placeholder="Enter address" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="validate-shipment" data-ship-url="@Url.Action("Ship")" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/toastr.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("body").on("click","#pagination a", function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $.get(url, function (html) {
+                    $("#elementsContainer").hide().html(html).fadeIn('slow');
+                });
+            });
+            var toShipArray = new Array();
+            $("body").on("click", ".to-ship", function (e) {
+                var $this = $(this);
+                var $shipSelected = $("#ship-selected");
+                var id = $(this).data("item-id");
+                if ($this.is(':checked')) {
+                    toShipArray.push(id);
+                } else {
+                    toShipArray.pop(id);
+                }
+                if (toShipArray.length > 0) {
+                    $shipSelected.removeClass("disabled");
+                } else {
+                    $shipSelected.addClass("disabled");
+                }
+            });
+
+            $("body").on("click", "#validate-shipment", function(e) {
+                e.preventDefault();
+                var shipUrl = $(this).data("ship-url");
+                var address = $("#shipment-address").val();
+                var postData = { idToShip: toShipArray, address: address };
+                $.ajax({
+                    type: "POST",
+                    url: shipUrl,
+                    data: postData,
+                    success: function (data) {
+                        if (data.type == "Success") {
+                            toastr.success(data.message);
+                        } else {
+                            toastr.error(data.message);
+                        }
+
+                    },
+                    dataType: "json",
+                    traditional: true
+                });
+                $('#shipment-modal').modal('hide');
+            });
+
+            //$("#ship-selected").on("click", function(e) {
+            //    e.preventDefault();
+            //    var shipUrl = $(this).data("ship-url");
+            //    var postData = { idToShip: toShipArray };
+            //    $.ajax({
+            //        type: "POST",
+            //        url: shipUrl,
+            //        data: postData,
+            //        success: function (data) {
+            //            if (data.type == "Success") {
+            //                toastr.success(data.message);
+            //            } else {
+            //                toastr.error(data.message);
+            //            }
+            //        },
+            //        dataType: "json",
+            //        traditional: true
+            //    });
+            //});
+        })
+    </script>
+}

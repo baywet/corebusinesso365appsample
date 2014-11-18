@@ -1,0 +1,101 @@
+﻿@model SnowProCorp.DAL.Shipment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Shipment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickedUpDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickedUpDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveredDate)
+        </dd>
+
+    </dl>
+</div>
+<div id='mapDiv' style="position:absolute; width:800px; height:400px;"></div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<input type="hidden" id="mapAdr" value="@Model.Address" />
+
+@section Scripts
+{
+    <script charset="UTF-8" type="text/javascript" src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&s=1">
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var credentials = "AohoAIcuTD_yPy-lw7rmrDocVlGCbhGp0X01-xoI7QANrWdB3Y4XBuahb2aIbOwQ";
+            $.getJSON('https://dev.virtualearth.net/REST/v1/Locations?query=' + encodeURI($("#mapAdr").val()) + '&key=' + credentials + '&jsonp=?', function (result) {
+                if (result.resourceSets[0].estimatedTotal > 0) {
+                    var loc = result.resourceSets[0].resources[0].point.coordinates;
+                    var map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {
+                                credentials: credentials,
+                                center: new Microsoft.Maps.Location(loc[0], loc[1]),
+                                mapTypeId: window.Microsoft.Maps.MapTypeId.road,
+                                zoom: 10
+                    });
+                    var pushpin = new Microsoft.Maps.Pushpin(map.getCenter());
+                    map.entities.push(pushpin);
+                }
+                else
+                {
+                    var map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {
+                        credentials: credentials,
+                        center: new Microsoft.Maps.Location(54, -4),
+                        mapTypeId: window.Microsoft.Maps.MapTypeId.road,
+                        zoom: 7
+                    });
+                }
+            });
+
+        });
+
+    </script>
+}

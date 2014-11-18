@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/utilities")
+    
+</head>
+<body style="overflow:auto">
+    <div id="chrome_ctrl_placeholder" data-ms-control="SP.UI.Controls.Navigation" data-ms-options='{
+         "appiconurl" : "/Content/Images/ilsp.png",
+         "appHelpPageUrl" : "../Pages/help.html",
+         "appTitle" : "Expedition Form",
+         "settingsLinks" :
+         [
+             {
+             "linkUrl" : "/Settings/?{StandardTokens}",
+             "displayName" : "Settings"
+             },
+             {
+             "linkUrl" : "/Shipment/?{StandardTokens}",
+             "displayName" : "Shipments"
+             }
+         ]
+         }'></div>
+   
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/spcontext")
+    <script>
+        $(function () {
+            var hostweburl = decodeURIComponent(NegotiumUtilities.getQueryStringParameter("SPHostUrl"));
+            var re = /#$/;
+            hostweburl = hostweburl.replace(re, "");
+            var scriptbase = hostweburl + "/_layouts/15/";
+            var ctrl = $("#chrome_ctrl_placeholder");
+            var nattrval = ctrl.attr("data-ms-options").replace(new RegExp("{StandardTokens}","g"), NegotiumUtilities.GetSharePointSecurityParams());
+            ctrl.attr("data-ms-options", nattrval);
+            $.getScript(scriptbase + "SP.UI.Controls.js");
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

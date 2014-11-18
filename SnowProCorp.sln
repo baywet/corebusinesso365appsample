@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowProCorp.Shipments", "SnowProCorp.Shipments\SnowProCorp.Shipments.csproj", "{1E8AA120-DC8E-479C-903B-623313578A4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowProCorp.ShipmentsWeb", "SnowProCorp.ShipmentsWeb\SnowProCorp.ShipmentsWeb.csproj", "{C7119E07-9E74-408A-B9FA-7F226AECE397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowProCorp.DAL", "SnowProCorp.DAL\SnowProCorp.DAL.csproj", "{803E8008-747B-4571-AD31-58D1C759ED67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowProCorp.Factory", "SnowProCorp.Factory\SnowProCorp.Factory.csproj", "{90DDEB58-2BC9-4506-81B5-86AFF4E311EF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://baywet.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SnowProCorp.Shipments\\SnowProCorp.Shipments.csproj
+		SccProjectName1 = SnowProCorp.Shipments
+		SccLocalPath1 = SnowProCorp.Shipments
+		SccProjectUniqueName2 = SnowProCorp.ShipmentsWeb\\SnowProCorp.ShipmentsWeb.csproj
+		SccProjectName2 = SnowProCorp.ShipmentsWeb
+		SccLocalPath2 = SnowProCorp.ShipmentsWeb
+		SccProjectUniqueName3 = SnowProCorp.DAL\\SnowProCorp.DAL.csproj
+		SccProjectName3 = SnowProCorp.DAL
+		SccLocalPath3 = SnowProCorp.DAL
+		SccProjectUniqueName4 = SnowProCorp.Factory\\SnowProCorp.Factory.csproj
+		SccProjectName4 = SnowProCorp.Factory
+		SccLocalPath4 = SnowProCorp.Factory
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E8AA120-DC8E-479C-903B-623313578A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8AA120-DC8E-479C-903B-623313578A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8AA120-DC8E-479C-903B-623313578A4E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1E8AA120-DC8E-479C-903B-623313578A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8AA120-DC8E-479C-903B-623313578A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E8AA120-DC8E-479C-903B-623313578A4E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C7119E07-9E74-408A-B9FA-7F226AECE397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7119E07-9E74-408A-B9FA-7F226AECE397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7119E07-9E74-408A-B9FA-7F226AECE397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7119E07-9E74-408A-B9FA-7F226AECE397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803E8008-747B-4571-AD31-58D1C759ED67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803E8008-747B-4571-AD31-58D1C759ED67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803E8008-747B-4571-AD31-58D1C759ED67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803E8008-747B-4571-AD31-58D1C759ED67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DDEB58-2BC9-4506-81B5-86AFF4E311EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DDEB58-2BC9-4506-81B5-86AFF4E311EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DDEB58-2BC9-4506-81B5-86AFF4E311EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DDEB58-2BC9-4506-81B5-86AFF4E311EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

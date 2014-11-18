@@ -1,0 +1,10 @@
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\SnowProCorp.DAL.dll.config
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\SnowProCorp.DAL.dll
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\SnowProCorp.DAL.pdb
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\EntityFramework.dll
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\EntityFramework.xml
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\obj\Debug\SnowProCorp.DAL.csprojResolveAssemblyReference.cache
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\obj\Debug\SnowProCorp.DAL.dll
+D:\sources\vsobaywet\PersonalProjects\Sessions\SPSummitMTL14\SnowProCorpProvider\SnowProCorp.DAL\obj\Debug\SnowProCorp.DAL.pdb
